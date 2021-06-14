@@ -1,8 +1,7 @@
 import "./App.css";
 import React from "react";
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
+import Card from "./Components/Card";
 function App() {
   const [listCharacters, setListCharacters] = useState([]);
   // the data coming back is an array and i want to list and display them
@@ -36,26 +35,17 @@ function App() {
       });
   }
   return (
-    <Router>
-      <Switch>
-        <Route path="/character/:id">
-          <CharacterPage></CharacterPage>
-        </Route>
-        <Route to="/">
-          <div className="App">
-            <h1> Star Wars Catalog</h1>
-            <div className="card-container">
-              {listCharacters.map(function (character) {
-                return <Card character={character}></Card>;
-              })}
-            </div>
-            <button onClick={loadMore} data-cy="load-more">
-              Load More
-            </button>
-          </div>
-        </Route>
-      </Switch>
-    </Router>
+    <div className="App">
+      <h1> Star Wars Catalog</h1>
+      <div className="card-container">
+        {listCharacters.map(function (character) {
+          return <Card character={character}></Card>;
+        })}
+      </div>
+      <button onClick={loadMore} data-cy="load-more">
+        Load More
+      </button>
+    </div>
     // this button is related to the Load more function which allows the user to load more of the star wars characters
   );
 }

@@ -1,11 +1,11 @@
 import React from "react";
-
-function Card() {
+// pass in props to make it more dynamic
+function Card(props) {
   return (
     <div>
-      <h4>Luke Skywalker</h4>
-      <p>height: 177 cm </p>
-      <p>Birth year: 1992</p>
+      <h4>{props.character.name}</h4>
+      <p>{props.character.height} </p>
+      <p>{props.character.mass}</p>
     </div>
   );
 }
